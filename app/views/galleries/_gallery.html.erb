@@ -1,0 +1,15 @@
+<blockquote>
+    <div><strong><%= link_to gallery.id, gallery_path(id: gallery.id), target: :blank %></strong></div>
+    <h3><a href="<%= gallery.link %>" target="blank"><%= gallery.title %></a></h3>
+
+    <div><%= gallery.pub_date %></div>
+    <div><%= gallery.state %></div>
+
+    <% gallery.images.each do |img| %>
+        <img src="<%= img %>" height="150" width="200" />
+    <% end %>
+    <% gallery.captions.each do |cap| %>
+        <div><%= cap %></div>
+    <% end %>
+    <hr /><hr />
+</blockquote>

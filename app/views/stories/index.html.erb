@@ -1,0 +1,4 @@
+<%= render partial: "shared/fetch_new", locals: {path: "stories"} %>
+<% @stories.each do |story| %>
+    <%= render partial: "story", locals: {story: story} %>
+<% end %>

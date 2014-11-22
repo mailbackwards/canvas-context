@@ -1,0 +1,12 @@
+<blockquote>
+    <div><strong><%= link_to story.id, story_path(id: story.id), target: :blank %></strong></div>
+    <h3><a href="<%= story.link %>" target="blank"><%= story.title %></a></h3>
+
+    <div><strong><%= story.author %></strong></div>
+    <div><em><%= story.source %></em></div>
+    <div><%= story.pubdate %></div>
+    <div><%= story.description %></div><br />
+
+    <img src="<%= story.smallimage %>" />
+    <hr /><hr />
+</blockquote>

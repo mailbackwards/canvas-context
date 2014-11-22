@@ -1,0 +1,4 @@
+<%= render partial: "shared/fetch_new", locals: {path: "videos"} %>
+<% @videos.each do |video| %>
+    <%= render partial: "video", locals: {video: video} %>
+<% end %>

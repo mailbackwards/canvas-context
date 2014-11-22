@@ -1,0 +1,12 @@
+<blockquote>
+    <div><strong><%= link_to video.id, video_path(id: video.id), target: :blank %></strong></div>
+    <h3><a href="<%= video.link_url %>" target="blank"><%= video.name %></a></h3>
+
+    <div><%= video.published_date %></div>
+    <div><%= video.long_description %></div>
+    <div><%= video.link_text %></div> <br />
+    <div><%= video.tags %></div>
+
+    <img src="<%= video.thumbnail_url %>" />
+    <hr /><hr />
+</blockquote>
