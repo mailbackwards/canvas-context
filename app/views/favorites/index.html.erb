@@ -1,0 +1,15 @@
+<h1>Favorite stories</h1>
+    <% @favorite_stories.each do |favorite_story| %>
+        <%= render partial: "stories/story", locals: {story: favorite_story.favorable} %>
+    <% end %>
+<hr />
+<h1>Favorite videos</h1>
+    <% @favorite_videos.each do |favorite_video| %>
+        <%= render partial: "videos/video", locals: {video: favorite_video.favorable} %>
+    <% end %>
+<hr />
+<h1>Favorite galleries</h1>
+    <% @favorite_galleries.each do |favorite_gallery| %>
+        <%= render partial: "galleries/gallery", locals: {gallery: favorite_gallery.favorable} %>
+    <% end %>
+<hr />

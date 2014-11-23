@@ -1,6 +1,14 @@
 <blockquote>
     <div><strong><%= link_to story.id, story_path(id: story.id), target: :blank %></strong></div>
     <h3><a href="<%= story.link %>" target="blank"><%= story.title %></a></h3>
+    
+    <% if user_signed_in? %>
+        <% if not current_user.get_favorite_id(story) %>
+            <div><%= link_to 'Favorite', new_favorite_path(favorable_type: 'story', favorable_id: story.id, from: stories_path) %></div>
+        <% else %>
+            <div><%= link_to 'Unfavorite', favorite_path(id: current_user.get_favorite_id(story), from: stories_path), method: :delete %></div>
+        <% end %>
+    <% end %>
 
     <div><strong><%= story.author %></strong></div>
     <div><em><%= story.source %></em></div>

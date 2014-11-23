@@ -1,4 +1,6 @@
 class Story < ActiveRecord::Base
+    has_many :favorites, :as => :favorable
+
     BASE_URL = Rails.configuration.aj_base_url + "stories/"
     PARAMS = {
         :format => :json,

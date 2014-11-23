@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :favorites
+  
   resources :stories do
     collection do
       get 'fetch'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
       get 'fetch'
     end
   end
+
+  devise_for :users
 
   root 'home#index'
 end

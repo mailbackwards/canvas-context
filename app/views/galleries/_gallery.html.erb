@@ -1,7 +1,15 @@
 <blockquote>
     <div><strong><%= link_to gallery.id, gallery_path(id: gallery.id), target: :blank %></strong></div>
     <h3><a href="<%= gallery.link %>" target="blank"><%= gallery.title %></a></h3>
-
+    
+    <% if user_signed_in? %>
+        <% if not current_user.get_favorite_id(gallery) %>
+            <div><%= link_to 'Favorite', new_favorite_path(favorable_type: 'gallery', favorable_id: gallery.id, from: galleries_path) %></div>
+        <% else %>
+            <div><%= link_to 'Unfavorite', favorite_path(id: current_user.get_favorite_id(gallery), from: galleries_path), method: :delete %></div>
+        <% end %>
+    <% end %>
+    
     <div><%= gallery.pub_date %></div>
     <div><%= gallery.state %></div>
 

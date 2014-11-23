@@ -1,0 +1,7 @@
+<% if @favorite.favorable_type == "story" %>
+    <%= render partial: @favorite.favorable_type.pluralize + "/" + @favorite.favorable_type, locals: {story: @favorite.favorable} %>
+<% elsif @favorite.favorable_type == "video" %>
+    <%= render partial: @favorite.favorable_type.pluralize + "/" + @favorite.favorable_type, locals: {video: @favorite.favorable} %>
+<% else %>
+    <%= render partial: @favorite.favorable_type.pluralize + "/" + @favorite.favorable_type, locals: {gallery: @favorite.favorable} %>
+<% end %>

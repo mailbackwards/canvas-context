@@ -1,4 +1,6 @@
 class Video < ActiveRecord::Base
+    has_many :favorites, :as => :favorable
+    
     serialize :tags
     serialize :renditions
     serialize :flv_full_length

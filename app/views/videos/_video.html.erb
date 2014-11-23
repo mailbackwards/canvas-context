@@ -1,6 +1,14 @@
 <blockquote>
     <div><strong><%= link_to video.id, video_path(id: video.id), target: :blank %></strong></div>
     <h3><a href="<%= video.link_url %>" target="blank"><%= video.name %></a></h3>
+   
+    <% if user_signed_in? %>
+        <% if not current_user.get_favorite_id(video) %>
+            <div><%= link_to 'Favorite', new_favorite_path(favorable_type: 'video', favorable_id: video.id, from: videos_path) %></div>
+        <% else %>
+            <div><%= link_to 'Unfavorite', favorite_path(id: current_user.get_favorite_id(video), from: videos_path), method: :delete %></div>
+        <% end %>
+    <% end %>
 
     <div><%= video.published_date %></div>
     <div><%= video.long_description %></div>

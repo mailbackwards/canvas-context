@@ -1,0 +1,12 @@
+<div><%= link_to 'Galleries', galleries_path %></div>
+<div><%= link_to 'Stories', stories_path %></div>
+<div><%= link_to 'Videos', videos_path %></div>
+<br />
+
+<% if user_signed_in? %>
+    <div><%= link_to 'Favorites', favorites_path %></div><br />
+    <div><em>Logged in as <strong><%= current_user.email %></strong></em></div>
+    <div><%= link_to 'Sign out', destroy_user_session_path %></div>
+<% else %>
+    <div><%= link_to 'Log in', new_user_session_path %></div>
+<% end %>

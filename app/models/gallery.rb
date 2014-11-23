@@ -1,4 +1,6 @@
 class Gallery < ActiveRecord::Base
+    has_many :favorites, :as => :favorable
+
     serialize :captions
     serialize :images
 
