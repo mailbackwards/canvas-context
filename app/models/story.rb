@@ -13,8 +13,12 @@ class Story < ActiveRecord::Base
 
     private
 
-    def self.query(section='latest')
-        MultiJson.load(Curl.get(BASE_URL+section, PARAMS).body_str)['stories']
+    def self.query(section, pagesize=15, pagenumber=1)
+        params = PARAMS.merge({
+            pagesize: pagesize,
+            pagenumber: pagenumber
+            })
+        MultiJson.load(Curl.get(BASE_URL+section, params).body_str)['stories']
     end
 
     def self.make(story)
